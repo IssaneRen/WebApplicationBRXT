@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\BmobBase.cs" />
+    <Compile Include="Controller\BmobLiveClass.cs" />
     <Compile Include="Controller\BmobMyUser.cs" />
     <Compile Include="Controller\BmobNews.cs" />
     <Compile Include="Controller\BmobQuestionBank.cs" />

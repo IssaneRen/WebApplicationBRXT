@@ -31,7 +31,7 @@ namespace WebApplicationBRXT.Controller
         }
 
         //添加新闻到数据库中
-        public String InsertAttraction(String newsTitle, String newsSummary)
+        public String InsertNews(String newsTitle, String newsSummary)
         {
             //接下来要操作的数据的数据
             NewsObject newsObject = new NewsObject(TABLE_NAME);

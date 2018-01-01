@@ -1,4 +1,5 @@
-﻿using System;
+﻿using cn.bmob.io;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -52,7 +53,7 @@ namespace WebApplicationBRXT
         public string InsertNews(String newstitle, String newssummary)
         {
             BmobNews bmobNews = new BmobNews();
-            String resultString = bmobNews.InsertAttraction(newstitle, newssummary);
+            String resultString = bmobNews.InsertNews(newstitle, newssummary);
             return resultString;
         }
 
@@ -61,6 +62,35 @@ namespace WebApplicationBRXT
         {
             BmobQuestionBank bmobQuestionBank = new BmobQuestionBank();
             String resultString = bmobQuestionBank.Upload(examurl, answerurl);
+            return resultString;
+        }
+
+        [WebMethod]
+        public string InsertLiveClass(String url, DateTime startTime, String profName, String profIntro)
+        {
+            BmobLiveClass bmobLiveClass = new BmobLiveClass();
+            String resultString = bmobLiveClass.InsertLiveClass(url, startTime, profName, profIntro);
+            return resultString;
+        }
+        [WebMethod]
+        public String DeleteLiveClass(String objectId)
+        {
+            BmobLiveClass bmobLiveClass = new BmobLiveClass();
+            String resultString = bmobLiveClass.DeleteLiveClass(objectId);
+            return resultString;
+        }
+        [WebMethod]
+        public String UpdateLiveClass(String objectId, String url, DateTime startTime, String profName, String profIntro)
+        {
+            BmobLiveClass bmobLiveClass = new BmobLiveClass();
+            String resultString = bmobLiveClass.UpdateLiveClass(objectId, url, startTime, profName, profIntro);
+            return resultString;
+        }
+        [WebMethod]
+        public string SearchLiveClass(String profName)
+        {
+            BmobLiveClass bmobLiveClass = new BmobLiveClass();
+            String resultString = bmobLiveClass.SearchLiveClass(profName);
             return resultString;
         }
     }
