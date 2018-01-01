@@ -39,5 +39,29 @@ namespace WebApplicationBRXT
             String testString = testBmob.RegFun(username, password);
             return testString;
         }
+
+        [WebMethod]
+        public string SearchNews(String newstitle)
+        {
+            BmobNews bmobNews = new BmobNews();
+            String resultString = bmobNews.SearchNews(newstitle);
+            return resultString;
+        }
+
+        [WebMethod]
+        public string InsertNews(String newstitle, String newssummary)
+        {
+            BmobNews bmobNews = new BmobNews();
+            String resultString = bmobNews.InsertAttraction(newstitle, newssummary);
+            return resultString;
+        }
+
+        [WebMethod]
+        public string UploadExamAndAnswer(String examurl, String answerurl)
+        {
+            BmobQuestionBank bmobQuestionBank = new BmobQuestionBank();
+            String resultString = bmobQuestionBank.Upload(examurl, answerurl);
+            return resultString;
+        }
     }
 }

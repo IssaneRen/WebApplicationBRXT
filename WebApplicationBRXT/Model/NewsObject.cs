@@ -4,21 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace WebApplicationTouringGo.Model
+namespace WebApplicationBRXT.Model
 {
-    class AttractionObject : BmobTable
+    public class NewsObject : BmobTable
     {
-
         private String fTable;
-        //以下对应云端字段名称
-        public String point { get; set; }
-        public String name { get; set; }
+        //一下对应云字段名称
+        public String title { set; get; }
+        public String summary { set; get; }
+        public BmobFile cover { set; get; }
 
-        //构造函数
-        public AttractionObject() { }
-
-        //构造函数
-        public AttractionObject(String tableName)
+        //constructor
+        public NewsObject() { }
+        public NewsObject(String tableName)
         {
             this.fTable = tableName;
         }
@@ -40,8 +38,9 @@ namespace WebApplicationTouringGo.Model
         {
             base.readFields(input);
 
-            this.point = input.getString("point");
-            this.name = input.getString("name");
+            this.title = input.getString("title");
+            this.summary = input.getString("summary");
+            this.cover = input.getFile("cover");
         }
 
         //写字段信息
@@ -49,8 +48,9 @@ namespace WebApplicationTouringGo.Model
         {
             base.write(output, all);
 
-            output.Put("point", this.point);
-            output.Put("name", this.name);
+            output.Put("title", this.title);
+            output.Put("summary", this.summary);
+            output.Put("cover", this.cover);
         }
     }
 }

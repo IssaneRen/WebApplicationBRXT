@@ -87,12 +87,17 @@
   <ItemGroup>
     <Compile Include="Controller\BmobBase.cs" />
     <Compile Include="Controller\BmobMyUser.cs" />
+    <Compile Include="Controller\BmobNews.cs" />
+    <Compile Include="Controller\BmobQuestionBank.cs" />
     <Compile Include="MainPage.asmx.cs">
       <DependentUpon>MainPage.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Model\AttractionObject.cs" />
+    <Compile Include="Model\LiveClassObject.cs" />
     <Compile Include="Model\MyUserObject.cs" />
+    <Compile Include="Model\NewsObject.cs" />
+    <Compile Include="Model\QuestionBankObject.cs" />
+    <Compile Include="Model\SelfStudyObject.cs" />
     <Compile Include="Model\TeacherUserObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
