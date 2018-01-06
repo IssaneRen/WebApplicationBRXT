@@ -121,13 +121,13 @@ namespace WebApplicationBRXT
         //4.4. 查询自习教室信息
 
 
-        [WebMethod]
-        public string UploadExamAndAnswer(String examurl, String answerurl)
-        {
-            BmobQuestionBank bmobQuestionBank = new BmobQuestionBank();
-            String resultString = "";//bmobQuestionBank.Upload(examurl, answerurl);
-            return resultString;
-        }
+        //[WebMethod]
+        //public string UploadExamAndAnswer(String examurl, String answerurl)
+        //{
+        //    BmobQuestionBank bmobQuestionBank = new BmobQuestionBank();
+        //    String resultString = "";//bmobQuestionBank.Upload(examurl, answerurl);
+        //    return resultString;
+        //}
 
         [WebMethod]
         public string InsertLiveClass(String url, DateTime startTime, String profName, String profIntro)
