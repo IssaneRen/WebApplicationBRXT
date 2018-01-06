@@ -25,14 +25,8 @@ namespace WebApplicationBRXT
             return "Hello World";
         }
 
-        [WebMethod]
-        public string Login(String username, String password)
-        {
-            BmobMyUser testBmob = new BmobMyUser();
-            String testString = testBmob.LoginFun(username, password);
-            return testString;
-        }
-
+        //1.MyUser部分
+        //1.1. 用户注册
         [WebMethod]
         public string Register(String username, String password)
         {
@@ -40,7 +34,73 @@ namespace WebApplicationBRXT
             String testString = testBmob.RegFun(username, password);
             return testString;
         }
+        //1.2. 用户登录
+        [WebMethod]
+        public string Login(String username, String password)
+        {
+            BmobMyUser testBmob = new BmobMyUser();
+            String testString = testBmob.LoginFun(username, password);
+            return testString;
+        }
+        //1.3. 用户信息获取（通过objectId)
+        [WebMethod]
+        public string GetUserInfoById(String objectId)
+        {
+            BmobMyUser bmobMyUser = new BmobMyUser();
+            String resultString = bmobMyUser.GetPersonalInfoById(objectId);
+            return resultString;
+        }
+        //1.4. 用户信息获取（通过username)
+        [WebMethod]
+        public string GetUserInfoByName(String name)
+        {
+            BmobMyUser bmobMyUser = new BmobMyUser();
+            String resultString = bmobMyUser.GetPersonalInfoByName(name);
+            return resultString;
+        }
+        //1.5. 用户信息修改（全部参数）
+        [WebMethod]
+        public string UpdateUserInfo(String objectId, int period, String grade, String avatarurl)
+        {
+            BmobMyUser bmobMyUser = new BmobMyUser();
+            String resultString = bmobMyUser.UpdatePersonalInfo(objectId, period, grade, avatarurl);
+            return resultString;
+        }
+        //1.6. 用户信息修改（单独参数）
+        [WebMethod]
+        public string UpdateUserSpecificInfo(String objectId, String infoname, String newinfo)
+        {
+            BmobMyUser bmobMyUser = new BmobMyUser();
+            String resultString = bmobMyUser.UpdatePersonalSpecificInfo(objectId,infoname, newinfo);
+            return resultString;
+        }
 
+        //2.News部分
+        //2.1. 增加新闻
+        [WebMethod]
+        public string InsertNews(String newstitle, String newssummary, String coverurl)
+        {
+            BmobNews bmobNews = new BmobNews();
+            String resultString = bmobNews.InsertNews(newstitle, newssummary, coverurl);
+            return resultString;
+        }
+        //2.2. 删除新闻
+        [WebMethod]
+        public string DeleteNews(String objectId)
+        {
+            BmobNews bmobNews = new BmobNews();
+            String resultString = bmobNews.DeleteNews(objectId);
+            return resultString;
+        }
+        //2.3. 修改新闻
+        [WebMethod]
+        public string UpdateNews(String objectId, String infoname, String newinfo)
+        {
+            BmobNews bmobNews = new BmobNews();
+            String resultString = bmobNews.UpdateNews(objectId, infoname, newinfo);
+            return resultString;
+        }
+        //2.4. 查询新闻
         [WebMethod]
         public string SearchNews(String newstitle)
         {
@@ -49,19 +109,23 @@ namespace WebApplicationBRXT
             return resultString;
         }
 
-        [WebMethod]
-        public string InsertNews(String newstitle, String newssummary)
-        {
-            BmobNews bmobNews = new BmobNews();
-            String resultString = bmobNews.InsertNews(newstitle, newssummary);
-            return resultString;
-        }
+        //3.QuestionBank部分
+        //3.1. 增加新题目
+        //3.2. 删除旧题目
+        //3.3. 修改某题目
+        //3.4. 查询某个题目内容
+        //4.LiveClass部分
+        //4.1. 增加自习教室
+        //4.2. 删除自习教室
+        //4.3. 修改自习教室信息
+        //4.4. 查询自习教室信息
+
 
         [WebMethod]
         public string UploadExamAndAnswer(String examurl, String answerurl)
         {
             BmobQuestionBank bmobQuestionBank = new BmobQuestionBank();
-            String resultString = bmobQuestionBank.Upload(examurl, answerurl);
+            String resultString = "";//bmobQuestionBank.Upload(examurl, answerurl);
             return resultString;
         }
 

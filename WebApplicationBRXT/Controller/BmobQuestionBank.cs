@@ -20,44 +20,57 @@ namespace WebApplicationBRXT.Controller
 
         }
 
-        public String Upload(String examurl, String answerurl)
-        {
-            const String EXTENTION_NAME = ".png";
+        //增加题库中的题目
+        //TODO: 添加题目
 
-            //Byte[] dataExam = null;
-            //Byte[] dataAnswer = null;
-            //using (var stream = File.OpenRead(examurl))
-            //{
-            //    dataExam = stream.ReadAsBytes();
-            //}
-            //using (var stream = File.OpenRead(answerurl)) 
-            //{
-            //    dataAnswer = stream.ReadAsBytes();
-            //}
+        //删除题库中题目
+        //TODO
 
-            BmobFile bmobFileExam =  new BmobFile();
-            BmobFile bmobFileAnswer = new BmobFile();
+        //修改题库中题目
+        //TODO
 
-            bmobFileExam.filename = "exam" + EXTENTION_NAME;
-            bmobFileAnswer.filename = "answer" + EXTENTION_NAME;
-            bmobFileExam.url = examurl;
-            bmobFileAnswer.url = answerurl;
+        //查询题库中题目
+        //TODO
 
-            QuestionBankObject questionBank = new QuestionBankObject(TABLE_NAME);
+        /*
+        //public String Upload(String examurl, String answerurl, String filename)
+        //{
+        //    //const String EXTENTION_NAME = ".png";
 
-            questionBank.examQuestion = bmobFileExam;
-            questionBank.answer = bmobFileAnswer;
+        //    //Byte[] dataExam = null;
+        //    //Byte[] dataAnswer = null;
+        //    //using (var stream = File.OpenRead(examurl))
+        //    //{
+        //    //    dataExam = stream.ReadAsBytes();
+        //    //}
+        //    //using (var stream = File.OpenRead(answerurl)) 
+        //    //{
+        //    //    dataAnswer = stream.ReadAsBytes();
+        //    //}
 
-            var future = Bmob.CreateTaskAsync(questionBank);
+        //    BmobFile bmobFileExam =  new BmobFile();
+        //    BmobFile bmobFileAnswer = new BmobFile();
 
-            // ！！！ 直接获取异步对象结果会阻塞主线程！ 建议使用async + await/callback的形式， 可以参考文件上传功能的实现。
-            //获取创建记录的objectId
-            questionBank.objectId = future.Result.objectId;
+        //    bmobFileExam.filename = filename;
+        //    bmobFileAnswer.filename = filename;
+        //    bmobFileExam.url = examurl;
+        //    bmobFileAnswer.url = answerurl;
 
-            //结果反馈作为返回值
-            String uploadResult = JsonAdapter.JSON.ToDebugJsonString(future.Result);
+        //    QuestionBankObject questionBank = new QuestionBankObject(TABLE_NAME);
 
-            return uploadResult;
-        }
+        //    questionBank.examQuestion = bmobFileExam;
+        //    questionBank.answer = bmobFileAnswer;
+
+        //    var future = Bmob.CreateTaskAsync(questionBank);
+
+        //    // ！！！ 直接获取异步对象结果会阻塞主线程！ 建议使用async + await/callback的形式， 可以参考文件上传功能的实现。
+        //    //获取创建记录的objectId
+        //    questionBank.objectId = future.Result.objectId;
+
+        //    //结果反馈作为返回值
+        //    String uploadResult = JsonAdapter.JSON.ToDebugJsonString(future.Result);
+
+        //    return uploadResult;
+        //}*/
     }
 }

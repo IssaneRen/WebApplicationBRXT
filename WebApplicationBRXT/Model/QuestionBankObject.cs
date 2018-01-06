@@ -10,8 +10,11 @@ namespace WebApplicationBRXT.Model
     {
         private String fTable;
         //一下对应云字段名称
-        public BmobFile examQuestion { set; get; }
-        public BmobFile answer { set; get; }
+        public BmobInt questionNum { set; get; }
+        public String question { set; get; }
+        public BmobFile graph { set; get; }
+        public String bankName { set; get; }
+        public String answer { set; get; }
 
         //constructor
         public QuestionBankObject() { }
@@ -37,8 +40,11 @@ namespace WebApplicationBRXT.Model
         {
             base.readFields(input);
 
-            this.examQuestion = input.Get<BmobFile>("examQuestion");
-            this.answer = input.Get<BmobFile>("answer");
+            this.questionNum = input.getInt("questionNum");
+            this.question = input.getString("question");
+            this.graph = input.Get<BmobFile>("graph");
+            this.bankName = input.getString("bankName");
+            this.answer = input.getString("answer");
         }
 
         //写字段信息
@@ -46,7 +52,10 @@ namespace WebApplicationBRXT.Model
         {
             base.write(output, all);
 
-            output.Put("examQuestion", this.examQuestion);
+            output.Put("questionNum", this.questionNum);
+            output.Put("question", this.question);
+            output.Put("graph", this.graph);
+            output.Put("bankName", this.bankName);
             output.Put("answer", this.answer);
         }
 

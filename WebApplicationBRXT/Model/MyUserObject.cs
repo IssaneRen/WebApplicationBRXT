@@ -1,4 +1,5 @@
 ﻿using cn.bmob.io;
+using System;
 
 namespace WebApplicationBRXT.Model
 {
@@ -6,8 +7,11 @@ namespace WebApplicationBRXT.Model
     {
 
         //以下对应云端字段名称
-        public BmobBoolean sex { get; set; }
-        public BmobInt age { get; set; }
+        //public BmobBoolean sex { get; set; }
+        //public BmobInt age { get; set; }
+        public BmobInt period { get; set; }
+        public String grade { get; set; }
+        public BmobFile avatar { get; set; }
 
         //构造函数
         public MyUserObject() { }
@@ -17,8 +21,11 @@ namespace WebApplicationBRXT.Model
         {
             base.readFields(input);
 
-            this.sex = input.getBoolean("sex");
-            this.age = input.getInt("age");
+            //this.sex = input.getBoolean("sex");
+            //this.age = input.getInt("age");
+            this.period = input.getInt("period");
+            this.grade = input.getString("grade");
+            this.avatar = input.Get<BmobFile>("avatar");
         }
 
         //写字段信息
@@ -26,8 +33,11 @@ namespace WebApplicationBRXT.Model
         {
             base.write(output, all);
 
-            output.Put("sex", this.sex);
-            output.Put("age", this.age);
+            //output.Put("sex", this.sex);
+            //output.Put("age", this.age);
+            output.Put("period", this.period);
+            output.Put("grade", this.grade);
+            output.Put("avatar", this.avatar);
         }
     }
 }

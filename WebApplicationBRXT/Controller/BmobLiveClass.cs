@@ -74,30 +74,27 @@ namespace WebApplicationBRXT.Controller
         }
 
         //修改数据 输入objectId获取对应的一行数据，并且输入新的url, startTime, profName以及profIntro
-        public String UpdateLiveClass(String objectId, String url,BmobDate startTime , String profName, String profIntro)
+        public String UpdateLiveClass(String objectId, String url, BmobDate startTime, String profName, String profIntro)
         {
-            LiveClassObject liveClassObject = new LiveClassObject(TABLE_NAME);
-            //查找一条记录 利用ObjectId
-            var future = Bmob.GetTaskAsync<LiveClassObject>(TABLE_NAME, objectId);
-
-            //更新内容
-            liveClassObject = future.Result;
+            LiveClassObject liveClassObject = new LiveClassObject();
+            liveClassObject.objectId = objectId;
             liveClassObject.url = url;
             liveClassObject.startTime = startTime;
             liveClassObject.profName = profName;
             liveClassObject.profIntro = profIntro;
 
             //更新记录
-            //var ffuture = Bmob.UpdateTaskAsync<LiveClassObject>(liveClassObject);
-            //删除旧的
-            DeleteLiveClass(future.Result.objectId);
-            //添加新的
-            var ffuture = InsertLiveClass(liveClassObject.url, liveClassObject.startTime, liveClassObject.profName, liveClassObject.profIntro);
-
-            //反馈信息
-            //String updateResult = JsonAdapter.JSON.ToDebugJsonString(ffuture.Result);
-
-            return ffuture;
+            //var future = Bmob.UpdateTaskAsync<LiveClassObject>(liveClassObject);
+            String result = "";
+            Bmob.Update(TABLE_NAME, objectId, liveClassObject, (resp, exception) =>
+            {
+                if (exception != null)
+                {
+                    result = ("修改失败, 失败原因为： " + exception.Message);
+                }
+            });
+            result = JsonAdapter.JSON.ToDebugJsonString(liveClassObject);
+            return result;
         }
 
         //查询数据 输入老师名字查询老师的全部课程
