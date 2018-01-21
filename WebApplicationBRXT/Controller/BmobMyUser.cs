@@ -33,6 +33,8 @@ namespace WebApplicationBRXT.Controller
 
         public String RegFun(String username, String password)
         {
+            if (username == "")
+                return "Exception: username is illegal.(201)";
             //注册用户
             MyUserObject user = new MyUserObject();
             user.username = username;

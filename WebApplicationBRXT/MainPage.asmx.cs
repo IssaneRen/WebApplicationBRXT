@@ -111,6 +111,12 @@ namespace WebApplicationBRXT
 
         //3.QuestionBank部分
         //3.1. 增加新题目
+        //public string InsertQuestionAndAnswer(int questionNumber, String question, String bankName, String answer, String graphurl = "")
+        //{
+        //    //TODO
+        //    BmobQuestionBank bmobQuestionBank = new BmobQuestionBank();
+
+        //}
         //3.2. 删除旧题目
         //3.3. 修改某题目
         //3.4. 查询某个题目内容

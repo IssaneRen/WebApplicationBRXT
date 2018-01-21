@@ -10,8 +10,6 @@ namespace WebApplicationBRXT.Model
     {
 
         //以下对应云端字段名称
-        public BmobBoolean sex { get; set; }
-        public BmobInt age { get; set; }
 
         //构造函数
         public TeacherUserObject() { }
@@ -21,8 +19,8 @@ namespace WebApplicationBRXT.Model
         {
             base.readFields(input);
 
-            this.sex = input.getBoolean("sex");
-            this.age = input.getInt("age");
+            //this.sex = input.getBoolean("sex");
+            //this.age = input.getInt("age");
         }
 
         //写字段信息
@@ -30,8 +28,8 @@ namespace WebApplicationBRXT.Model
         {
             base.write(output, all);
 
-            output.Put("sex", this.sex);
-            output.Put("age", this.age);
+            //output.Put("sex", this.sex);
+            //output.Put("age", this.age);
         }
 
     }
